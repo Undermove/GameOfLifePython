@@ -3,8 +3,6 @@ import numpy as np
 
 from celluloid import Camera
 
-file = open("gameOfLifeStart.csv")
-# currentGen = np.loadtxt(file, delimiter=",").astype(int)
 currentGen = np.random.randint(0, 2, size=(100, 100))
 rows, columns = currentGen.shape
 epochs = 300
@@ -37,6 +35,7 @@ for i in range(epochs):
                 nextGen[row][column] = 0
 
             if cell == 1 and (coLivers == 2 or coLivers == 3):
+                # оставить в живых уже живую
                 nextGen[row][column] = 1
 
     currentGen = nextGen
